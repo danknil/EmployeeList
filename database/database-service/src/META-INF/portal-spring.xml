@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="employee.database.service.impl.ElectroEmployeeLocalServiceImpl" id="employee.database.service.ElectroEmployeeLocalService" />
+	<bean class="employee.database.service.impl.ElectroEmployeeServiceImpl" id="employee.database.service.ElectroEmployeeService" />
+	<bean class="employee.database.service.persistence.impl.ElectroEmployeePersistenceImpl" id="employee.database.service.persistence.ElectroEmployeePersistence" />
+	<bean class="employee.database.service.impl.ElectronicsLocalServiceImpl" id="employee.database.service.ElectronicsLocalService" />
+	<bean class="employee.database.service.impl.ElectronicsServiceImpl" id="employee.database.service.ElectronicsService" />
+	<bean class="employee.database.service.persistence.impl.ElectronicsPersistenceImpl" id="employee.database.service.persistence.ElectronicsPersistence" />
+	<bean class="employee.database.service.impl.ElectroTypeLocalServiceImpl" id="employee.database.service.ElectroTypeLocalService" />
+	<bean class="employee.database.service.impl.ElectroTypeServiceImpl" id="employee.database.service.ElectroTypeService" />
+	<bean class="employee.database.service.persistence.impl.ElectroTypePersistenceImpl" id="employee.database.service.persistence.ElectroTypePersistence" />
+	<bean class="employee.database.service.impl.EmployeeLocalServiceImpl" id="employee.database.service.EmployeeLocalService" />
+	<bean class="employee.database.service.impl.EmployeeServiceImpl" id="employee.database.service.EmployeeService" />
+	<bean class="employee.database.service.persistence.impl.EmployeePersistenceImpl" id="employee.database.service.persistence.EmployeePersistence" />
+	<bean class="employee.database.service.impl.PositionTypeLocalServiceImpl" id="employee.database.service.PositionTypeLocalService" />
+	<bean class="employee.database.service.impl.PositionTypeServiceImpl" id="employee.database.service.PositionTypeService" />
+	<bean class="employee.database.service.persistence.impl.PositionTypePersistenceImpl" id="employee.database.service.persistence.PositionTypePersistence" />
+	<bean class="employee.database.service.impl.PurchaseLocalServiceImpl" id="employee.database.service.PurchaseLocalService" />
+	<bean class="employee.database.service.impl.PurchaseServiceImpl" id="employee.database.service.PurchaseService" />
+	<bean class="employee.database.service.persistence.impl.PurchasePersistenceImpl" id="employee.database.service.persistence.PurchasePersistence" />
+	<bean class="employee.database.service.impl.PurchaseTypeLocalServiceImpl" id="employee.database.service.PurchaseTypeLocalService" />
+	<bean class="employee.database.service.impl.PurchaseTypeServiceImpl" id="employee.database.service.PurchaseTypeService" />
+	<bean class="employee.database.service.persistence.impl.PurchaseTypePersistenceImpl" id="employee.database.service.persistence.PurchaseTypePersistence" />
+</beans>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="spring" package-path="employee.database">
+	<namespace>EmployeeList</namespace>
+	<entity name="Electronics" remote-service="true" local-service="true" uuid="true">
+		<column name="id" type="long" primary="true"/>
+		<column name="name" type="String"/>
+		<!--  ElectroType  -->
+		<column name="etype" type="long"/>
+		<column name="price" type="long"/>
+		<column name="count" type="int"/>
+		<column name="inStock" type="boolean"/>
+		<column name="archive" type="boolean"/>
+		<column name="description" type="String"/>
+		<finder name="electroType" return-type="Collection">
+			<finder-column name="etype"/>
+		</finder>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+	</entity>
+	<entity local-service="true" name="ElectroType" remote-service="true" uuid="true">
+		<column name="id" type="long" primary="true"/>
+		<column name="name" type="String"/>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+	</entity>
+	<entity name="ElectroEmployee" local-service="true" remote-service="true" uuid="true">
+		<!--  Employee  -->
+		<column name="employeeId" type="long" primary="true"/>
+		<!--  ElectroType  -->
+		<column name="etype" type="long"/>
+		<order>
+			<order-column name="employeeId" order-by="asc"/>
+		</order>
+		<finder name="electroType" return-type="Collection">
+			<finder-column name="etype"/>
+		</finder>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+	</entity>
+	<entity name="Employee" local-service="true" remote-service="true" uuid="true">
+		<!--  ElectroEmployee  -->
+		<column name="id" type="long" primary="true"/>
+		<column name="lastname" type="String"/>
+		<column name="firstname" type="String"/>
+		<column name="patronymic" type="String"/>
+		<column name="birthdate" type="Date"/>
+		<!--  PositionType  -->
+		<column name="position" type="long"/>
+		<column name="gender" type="boolean"/>
+		<order>
+			<order-column name="id" order-by="asc"/>
+		</order>
+		<finder name="positionType" return-type="Collection">
+			<finder-column name="position"/>
+		</finder>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+	</entity>
+	<entity name="PositionType" local-service="true" remote-service="true" uuid="true">
+		<column name="id" type="long" primary="true"/>
+		<column name="name" type="String"/>
+		<order>
+			<order-column name="id" order-by="asc"/>
+		</order>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+	</entity>
+	<entity name="Purchase" local-service="true" remote-service="true" uuid="true">
+		<column name="id" type="long" primary="true"/>
+		<!--  Electronics  -->
+		<column name="electroId" type="long"/>
+		<!--  Employee  -->
+		<column name="employeeId" type="long"/>
+		<column name="purchaseDate" type="Date"/>
+		<!--  PurchaseType  -->
+		<column name="type" type="long"/>
+		<order>
+			<order-column name="id" order-by="asc"/>
+		</order>
+		<finder name="electronics" return-type="Collection">
+			<finder-column name="electroId"/>
+		</finder>
+		<finder name="employee" return-type="Collection">
+			<finder-column name="employeeId"/>
+		</finder>
+		<finder name="purchaseType" return-type="Collection">
+			<finder-column name="type"/>
+		</finder>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+	</entity>
+	<entity name="PurchaseType" local-service="true" remote-service="true" uuid="true">
+		<column name="id" type="long" primary="true"/>
+		<column name="name" type="String"/>
+		<order>
+			<order-column name="id" order-by="asc"/>
+		</order>
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+	</entity>
+</service-builder>

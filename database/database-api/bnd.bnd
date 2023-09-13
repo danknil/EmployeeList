@@ -1,0 +1,12 @@
+Bundle-Name: database-api
+Bundle-SymbolicName: employee.database.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	employee.database.exception,\
+	employee.database.model,\
+	employee.database.service,\
+	employee.database.service.persistence
+-check: EXPORTS
+-consumer-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}
+-includeresource: META-INF/service.xml=../database-service/service.xml
+-provider-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}
