@@ -1,5 +1,6 @@
 package employee.list.portlet;
 
+import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
@@ -11,6 +12,7 @@ import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import javax.portlet.*;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import java.io.File;
 import java.io.IOException;

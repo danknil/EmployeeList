@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
@@ -12,11 +14,12 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <portlet:defineObjects />
 
 <%
-    EmployeeLocalService employeeService = (EmployeeLocalService) renderRequest.getAttribute("employeeService");
-    ElectronicsLocalService electronicsService = (ElectronicsLocalService) renderRequest.getAttribute("electronicsService");
-    PurchaseLocalService purchaseService = (PurchaseLocalService) renderRequest.getAttribute("purchaseService");
-
-    PositionTypeLocalService positionTypeService = (PositionTypeLocalService) renderRequest.getAttribute("positionTypeService");
-    ElectroTypeLocalService electroTypeService = (ElectroTypeLocalService) renderRequest.getAttribute("electroTypeService");
-    PurchaseTypeLocalService purchaseTypeService = (PurchaseTypeLocalService) renderRequest.getAttribute("purchaseTypeService");
+//    EmployeeLocalService employeeService = (EmployeeLocalService) renderRequest.getAttribute("employeeService");
+//    ElectronicsLocalService electronicsService = (ElectronicsLocalService) renderRequest.getAttribute("electronicsService");
+//    PurchaseLocalService purchaseService = (PurchaseLocalService) renderRequest.getAttribute("purchaseService");
+//
+//    PositionTypeLocalService positionTypeService = (PositionTypeLocalService) renderRequest.getAttribute("positionTypeService");
+//    ElectroTypeLocalService electroTypeService = (ElectroTypeLocalService) renderRequest.getAttribute("electroTypeService");
+//    PurchaseTypeLocalService purchaseTypeService = (PurchaseTypeLocalService) renderRequest.getAttribute("purchaseTypeService");
+    DateFormat sdf = new SimpleDateFormat("y-MM-dd");
 %>

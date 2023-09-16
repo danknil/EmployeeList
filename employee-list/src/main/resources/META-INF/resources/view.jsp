@@ -1,3 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>
+
+<%@ include file="init.jsp" %>
+
 <%@ page import="com.liferay.portal.kernel.portlet.PortletURLUtil" %>
 <%@ page import="javax.portlet.PortletURL" %>
 <%@ page import="employee.database.model.*" %>
@@ -8,7 +13,6 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="employee.database.service.PositionTypeLocalServiceUtil" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ include file="init.jsp" %>
 
 <portlet:actionURL var="submitFileAction" name="uploadFile"/>
 
@@ -23,33 +27,32 @@
 //    List<Purchase> purchases = purchaseService.getPurchases(-1,-1);
 //    List<Electronics> electronics = electronicsService.getElectronicses(-1,-1);
 
-    DateFormat sdf = new SimpleDateFormat("y-MM-dd");
     PortletURL thisURL = PortletURLUtil.getCurrent(liferayPortletRequest, liferayPortletResponse);
 %>
 
-<liferay-ui:tabs names="Employees,Purchase,Electronics">
+<liferay-ui:tabs names="Employees,Purchases,Electronics">
     <liferay-ui:section>
-        <liferay-ui:search-container iteratorURL="<%= thisURL %>" emptyResultsMessage="пусто" delta="20" deltaConfigurable="true" total="<%= employeeService.getEmployeesCount() %>">
+        <liferay-ui:search-container iteratorURL="<%= thisURL %>" emptyResultsMessage="empty" delta="20" deltaConfigurable="true">
             <%
 //                searchContainer.setResults(employees);
 //                searchContainer.setTotal(employees.size());
             %>
-            <liferay-ui:search-container-results
-                    results="<%= employeeService.getEmployees(searchContainer.getStart(), searchContainer.getEnd()) %>"
-            />
+<%--            <liferay-ui:search-container-results--%>
+<%--                    results="<%= employeeService.getEmployees(searchContainer.getStart(), searchContainer.getEnd()) %>"--%>
+<%--            />--%>
             <liferay-ui:search-container-row className="employee.database.model.Employee">
                 <liferay-ui:search-container-column-text name="ID" value="<%= String.valueOf(model.getId()) %>"/>
                 <liferay-ui:search-container-column-text name="Lastname" value="<%= model.getLastname() %>"/>
                 <liferay-ui:search-container-column-text name="Firstname" value="<%= model.getFirstname() %>"/>
                 <liferay-ui:search-container-column-text name="Patronymic" value="<%= model.getPatronymic() %>"/>
-                <liferay-ui:search-container-column-text name="Gender" value='<%= model.getGender() ? "Мужской" : "Женский" %>'/>
+                <liferay-ui:search-container-column-text name="Gender" value='<%= model.getGender() ? "male" : "female" %>'/>
                 <liferay-ui:search-container-column-text name="Birthdate" value="<%= sdf.format(model.getBirthdate()) %>"/>
 <%--                <liferay-ui:search-container-column-text name="Position" value="<%= positionTypeService.getPositionType(model.getPosition()).getName() %>"/>--%>
             </liferay-ui:search-container-row>
         </liferay-ui:search-container>
     </liferay-ui:section>
     <liferay-ui:section>
-        <liferay-ui:search-container iteratorURL="<%= thisURL %>" emptyResultsMessage="пусто" delta="20" deltaConfigurable="true">
+        <liferay-ui:search-container iteratorURL="<%= thisURL %>" emptyResultsMessage="empty" delta="20" deltaConfigurable="true">
             <%
 //                searchContainer.setResults(purchases);
 //                searchContainer.setTotal(purchases.size());
@@ -64,7 +67,7 @@
         </liferay-ui:search-container>
     </liferay-ui:section>
     <liferay-ui:section>
-        <liferay-ui:search-container iteratorURL="<%= thisURL %>" emptyResultsMessage="пусто" delta="20" deltaConfigurable="true">
+        <liferay-ui:search-container iteratorURL="<%= thisURL %>" emptyResultsMessage="empty" delta="20" deltaConfigurable="true">
             <%
 //                searchContainer.setResults(electronics);
 //                searchContainer.setTotal(electronics.size());
